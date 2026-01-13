@@ -41,4 +41,12 @@ exports.calculate = function(req, res) {
   }
 
   res.json({ result: operation(req.query.operand1, req.query.operand2) });
+
+  // Function for new feature
+  function logOperation(op, a, b, result) {
+    console.log(`Operation: ${op}, Operand1: ${a}, Operand2: ${b}, Result: ${result}`);
+  }
+
+  logOperation(req.query.operation, req.query.operand1, req.query.operand2, operation(req.query.operand1, req.query.operand2));
+
 };
